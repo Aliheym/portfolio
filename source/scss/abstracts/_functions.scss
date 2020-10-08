@@ -1,0 +1,33 @@
+$base-url: "../assets/" !default;
+
+@function pow($base, $exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $base;
+    }
+  }
+
+  @return $value;
+}
+
+@function asset($base, $type, $path) {
+  @return url($base + $type + $path);
+}
+
+@function image($path, $base: $base-url) {
+  @return asset($base, "images/", $path);
+}
+
+@function icon($name, $base: $base-url) {
+  @return image("icons/i-" + $name + ".svg", $base);
+}
+
+@function font($path, $base: $base-url) {
+  @return asset($base, "fonts/", $path);
+}
+
+@function z($layer: default) {
+  @return map-get($zIndexes, $layer);
+}

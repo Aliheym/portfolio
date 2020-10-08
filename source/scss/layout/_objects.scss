@@ -1,0 +1,25 @@
+.page-container {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+
+  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  @include mq(less desktop) {
+    display: block;
+  }
+}
+
+.container {
+  @include container;
+}
+
+main {
+  grid-column: 2;
+}
+
+.page-footer {
+  grid-column: 2;
+}

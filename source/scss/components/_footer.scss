@@ -1,0 +1,102 @@
+$linkWidth: 350px;
+$linkWidthMobile: 250px;
+
+.page-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: $xlSpace;
+  padding-bottom: $xlSpace;
+
+  color: $white;
+
+  background-color: $darkColor-900;
+
+  @include mq(less desktop) {
+    padding-bottom: $xxlSpace;
+  }
+}
+
+.page-footer__link {
+  display: flex;
+  align-items: center;
+  width: $linkWidth;
+
+  text-decoration: none;
+  background-color: $darkColor-700;
+  outline: none;
+
+  box-shadow: 0 0.5rem 2rem rgba($black, 0.7);
+  transition: transform 0.25s, background-color 0.3s;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: $primaryColor;
+
+    transform: translateY(-3px);
+
+    .page-footer__icon {
+      background-color: $primaryColor;
+    }
+
+    svg {
+      animation: moveFromRightToLeft 0.3s forwards;
+    }
+  }
+
+  @include mq(less tablet) {
+    width: $linkWidthMobile;
+  }
+}
+
+.page-footer__text {
+  font-size: $xlText;
+
+  margin: 0 auto;
+
+  @include mq(less tablet) {
+    font-size: $lgText;
+  }
+}
+
+.page-footer__icon {
+  padding: $smSpace $baseSpace;
+  overflow: hidden;
+
+  background-color: $darkColor;
+
+  transition: background-color 0.3s;
+
+  &:hover svg {
+    animation: moveFromLeftToRight 0.3s forwards;
+  }
+}
+
+.page-footer__icon svg {
+  @include box($lgIcon);
+
+  fill: $white;
+
+  @include mq(less tablet) {
+    @include box($mdIcon);
+  }
+}
+
+.page-footer__copyright {
+  margin: 0;
+  margin-top: $mdSpace;
+  padding: 0;
+
+  font-size: $smText;
+  color: $grey-400;
+}
+
+.page-footer__attribute {
+  font-size: $xsText;
+  text-align: center;
+}
+
+.page-footer__attribute a {
+  color: $secondaryColor;
+}

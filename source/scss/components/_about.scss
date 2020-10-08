@@ -1,0 +1,8 @@
+$aboutItemSize: 300px;
+
+.about__list {
+  @include list-reset;
+
+  @include grid();
+  @include gridAuto($aboutItemSize);
+}

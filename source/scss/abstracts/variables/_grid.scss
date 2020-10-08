@@ -1,0 +1,17 @@
+$gridGutter: 1.5rem !default;
+$gridColumns: 12 !default;
+
+$gridBreakpoints: (
+  mobile: 0,
+  tablet: 576px,
+  landscape: 768px,
+  desktop: 992px,
+  laptop: 1200px,
+) !default;
+
+$containerMaxWidths: (
+  tablet: 540px,
+  landscape: 720px,
+  desktop: 960px,
+  laptop: 1140px,
+) !default;

@@ -1,0 +1,61 @@
+$titleLineWidth: 2em;
+$titleLineHeight: 5px;
+
+.section {
+  min-height: 100vh;
+  padding-bottom: $xlSpace;
+
+  background-color: $white;
+  border-top: 0.1px solid transparent;
+
+  &--dark {
+    background-color: $darkColor;
+
+    .section__title {
+      color: $white;
+    }
+  }
+}
+
+.section__title {
+  position: relative;
+  margin: $xlSpace 0;
+  padding-bottom: $smSpace;
+
+  font-size: $xxlText;
+  text-transform: uppercase;
+  text-align: center;
+  color: $headingColor;
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+
+    width: $titleLineWidth;
+    height: $titleLineHeight;
+    margin-left: $titleLineWidth / -2;
+
+    text-align: center;
+
+    background-color: currentColor;
+  }
+
+  @include mq(less landscape) {
+    margin: $lgSpace 0;
+  }
+}
+
+.section__subtitle {
+  margin: $smSpace 0;
+
+  font-size: $xlText;
+  text-transform: uppercase;
+  color: $headingColor;
+
+  @include mq(less landscape) {
+    margin: $xsSpace 0;
+  }
+}

@@ -1,0 +1,129 @@
+.skill {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $xsSpace $mdSpace;
+
+  background-image: linear-gradient(
+    to right,
+    $grey-900 50%,
+    $darkColor-700 50%
+  );
+  box-shadow: 0 0.5rem 2rem rgba($black, 0.5);
+
+  user-select: none;
+  transition: box-shadow 0.3s;
+}
+
+.skill:hover {
+  box-shadow: 0 0.75rem 2.5rem rgba($black, 0.5);
+
+  .skill__name {
+    color: $white;
+    transform: perspective(1000px) scale(0.8);
+  }
+
+  .skill__icon {
+    filter: grayscale(0) opacity(1);
+    transform: translate3d(-50%, -50%, 0) scale(1.2);
+  }
+
+  .skill__progress {
+    color: $white;
+
+    transform: perspective(1000px) scale(0.8);
+  }
+}
+
+.skill__name {
+  margin: 0;
+  padding: 0;
+
+  font-size: $lgText;
+  white-space: nowrap;
+  color: $textMutedColor;
+
+  transition: color 0.2s, transform 0.2s;
+
+  perspective: 1px;
+  transform: perspective(1px);
+  backface-visibility: hidden;
+}
+
+.skill__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: $lgIcon;
+  height: $lgIcon;
+
+  filter: grayscale(100%) opacity(0.5);
+  transform: translate(-50%, -50%);
+  transition: filter 0.4s, transform 0.4s;
+}
+
+.skill__progress {
+  font-size: $mdText;
+  color: $textMutedColor;
+
+  @include mq(less desktop) {
+    font-size: $lgText;
+  }
+
+  transition: transform 0.4s;
+}
+
+.skill--html .skill__icon {
+  fill: #e34f26;
+}
+
+.skill--css .skill__icon {
+  fill: #1572b6;
+}
+
+.skill--js .skill__icon {
+  fill: #f7df1e;
+}
+
+.skill--nodejs .skill__icon {
+  fill: #339933;
+}
+
+.skill--react .skill__icon {
+  fill: #61dafb;
+}
+
+.skill--vue .skill__icon {
+  fill: #4fc08d;
+}
+
+.skill--scss .skill__icon {
+  fill: #cc6699;
+}
+
+.skill--php .skill__icon {
+  fill: #777bb4;
+}
+
+.skill--webpack .skill__icon {
+  fill: #8dd6f9;
+}
+
+.skill--gulp .skill__icon {
+  fill: #cf4647;
+}
+
+.skill--git .skill__icon {
+  fill: #f05032;
+}
+
+.skill--mysql .skill__icon {
+  fill: #4479a1;
+}
+
+.skill--mongo .skill__icon {
+  fill: #47a248;
+}

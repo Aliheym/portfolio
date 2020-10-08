@@ -1,0 +1,25 @@
+$primaryFont: Raleway, Arial, Helvetica, sans-serif !default;
+$secondaryFont: "Open Sans", Verdana, Geneva, Tahoma, sans-serif !default;
+
+/* base values */
+$baseTextSize: 1rem !default;
+$scaleRatio: 1.2 !default;
+
+/* font-size scale */
+$xsText: $baseTextSize / pow($scaleRatio, 2) !default;
+$smText: $baseTextSize / $scaleRatio !default;
+$mdText: $baseTextSize * pow($scaleRatio, 1) !default;
+$lgText: $baseTextSize * pow($scaleRatio, 2) !default;
+$xlText: $baseTextSize * pow($scaleRatio, 3) !default;
+$xxlText: $baseTextSize * pow($scaleRatio, 4) !default;
+
+/* line-height */
+$textLineHeight: 1.4 !default;
+$headingLineHeight: 1.2 !default;
+
+/* icon size */
+$xsIcon: 16px !default;
+$smIcon: 24px !default;
+$mdIcon: 32px !default;
+$lgIcon: 48px !default;
+$xlIcon: 64px !default;

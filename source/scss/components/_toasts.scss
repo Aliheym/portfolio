@@ -1,0 +1,61 @@
+$toastHeight: 3rem;
+
+.toast-container {
+  position: fixed;
+  top: 5%;
+  right: 5%;
+  z-index: z(popup);
+
+  max-width: 80%;
+
+  @include mq(less desktop) {
+    top: 0%;
+    right: auto;
+
+    left: 5%;
+  }
+
+  @include mq(less tablet) {
+    left: auto;
+    bottom: auto;
+    top: 0%;
+
+    min-width: 100%;
+  }
+}
+
+.toast {
+  position: relative;
+  top: 2rem;
+
+  min-height: $toastHeight;
+  margin-top: $smSpace;
+  padding: $smSpace $mdSpace;
+
+  font-size: $mdText;
+  color: $white;
+
+  background-color: $darkColor-900;
+  border-radius: 2px;
+  box-shadow: 0 0.18rem 0.18rem 0 rgba($black, 0.15),
+    0 0.27rem 0.09rem -0.18rem rgba($black, 0.13),
+    0 0.09rem 0.45rem 0 rgba($black, 0.2);
+
+  &--success {
+    background-color: $successColor;
+  }
+
+  &--error {
+    background-color: $errorColor;
+  }
+
+  &--warning {
+    background-color: $warningColor;
+  }
+
+  @include mq(less tablet) {
+    border-radius: 0;
+
+    width: 100%;
+  }
+}

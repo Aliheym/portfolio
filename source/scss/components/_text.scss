@@ -1,0 +1,77 @@
+.text {
+  position: relative;
+
+  white-space: nowrap;
+}
+
+.text--highlight {
+  font-weight: 700;
+  color: $textMarkColor;
+
+  &::selection {
+    color: $darkColor-900;
+  }
+}
+
+.text--typo {
+  display: inline-flex;
+
+  .text__content {
+    width: 0;
+    overflow: hidden;
+
+    animation: type 1s steps(40, end) forwards;
+  }
+
+  .text__content--long {
+    animation-delay: 5s;
+    animation-duration: 3s;
+  }
+}
+
+.text--fadeBar {
+  &::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    background-color: $textMarkColor;
+
+    animation: fadeBar 2s forwards 1.5s;
+  }
+
+  .text__content {
+    opacity: 0;
+
+    animation: fadeIn 2s forwards 3.5s;
+  }
+}
+
+.text--dotPopIn {
+  &::after {
+    content: "";
+
+    position: absolute;
+    right: -0.3em;
+    bottom: 0.25em;
+    margin-right: $lgSpace;
+
+    width: 0.2em;
+    height: 0.2em;
+
+    background-color: $textMarkColor;
+    border-radius: 50%;
+    opacity: 0;
+
+    animation: dotPopIn 1s forwards 4s;
+  }
+}
+
+.text--cursor {
+  border-right: $borderWidth solid transparent;
+
+  animation: borderBlink 1s linear infinite 8s;
+}

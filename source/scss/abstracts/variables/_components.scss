@@ -1,0 +1,17 @@
+$componentPadding: $mdSpace !default;
+
+$borderWidth: 1px !default;
+$borderColor: $grey-300 !default;
+
+$boxShadow: 0 0.5rem 1rem rgba($black, 0.15) !default;
+$smBoxShadow: 0 0.125rem 0.25rem rgba($black, 0.075) !default;
+$lgBoxShadow: 0 1rem 3rem rgba($black, 0.175) !default;
+
+$transition: 0.2s ease-in-out !default;
+
+$aspect-ratios: (
+  "2x3": percentage(2 / 3),
+  "4x3": percentage(3 / 4),
+  "16x9": percentage(9 / 16),
+  "21x9": percentage(9 / 21),
+) !default;

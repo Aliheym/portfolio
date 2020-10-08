@@ -1,0 +1,72 @@
+@mixin box($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+
+  list-style-type: none;
+}
+
+@mixin font-face(
+  $name,
+  $fontPath,
+  $weight: 400,
+  $style: normal,
+  $formats: woff2 woff
+) {
+  $src: null;
+
+  @each $format in $formats {
+    $src: append(
+      $src,
+      font($fontPath + "." + $format) format("#{$format}"),
+      comma
+    );
+  }
+
+  @font-face {
+    font-family: $name;
+    font-weight: $weight;
+    font-style: $style;
+    font-display: swap;
+
+    src: $src;
+
+    @content;
+  }
+}
+
+// Experimental
+
+@mixin inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+@mixin screenify($bg: $secondaryColor) {
+  body::after {
+    position: fixed;
+    top: 0;
+    right: 0;
+    opacity: 0.6;
+    width: 250px;
+    height: 50px;
+    z-index: z(max);
+
+    background-color: $bg;
+    color: invert($bg);
+    text-align: center;
+    line-height: 50px;
+    content: "";
+
+    @each $bp, $px in $gridBreakpoints {
+      @include mq(greater $bp) {
+        content: "#{$bp} (#{$px})";
+      }
+    }
+  }
+}

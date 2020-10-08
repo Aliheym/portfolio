@@ -1,0 +1,221 @@
+$directions: less greater only between; // TODO
+$defaultDirection: less;
+
+/*
+  USING:
+
+  <div class="grid">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+  </div>
+
+  .grid {
+    @include grid();
+    @include gridAuto(300px);
+  }
+
+  // OR
+
+  .grid {
+    @include flexGrid();
+    @include flexGridAuto(1);
+    @include gutterY(3rem);
+
+    @mq(greater tablet) {
+      @include gridCols(3);
+    }
+  }
+
+  Result:
+
+  - until tablet:
+    1
+    2
+    3
+    4
+    5
+    6
+
+  - from tablet
+    1 2 3
+    4 5 6
+    7
+
+  // OR
+
+  .grid {
+    @include grid();
+  }
+
+  .item {
+    @include item(3); // 3 / 12 columns
+  }
+*/
+
+/*
+ mq(less tablet)
+ mq(greater desktop)
+ mq(desktop) same as mq($defaultDirection tablet)
+*/
+
+@mixin mq($query) {
+  $direction: nth($query, 1);
+  $name: $direction;
+
+  $direction: if(index($directions, $direction), $direction, $defaultDirection);
+
+  @if length($query) == 2 {
+    $name: nth($query, 2);
+  }
+
+  @if $direction == from or $direction == greater {
+    $breakpoint: map-get($gridBreakpoints, $name);
+    $min: if($breakpoint != 0, $breakpoint, null);
+
+    @if $min {
+      @media (min-width: $min) {
+        @content;
+      }
+    } @else {
+      @content;
+    }
+  } @else {
+    $breakpoint: map-get($gridBreakpoints, $name);
+    $max: if($breakpoint and $breakpoint > 0, $breakpoint, null);
+
+    @if $max {
+      @media (max-width: $max) {
+        @content;
+      }
+    } @else {
+      @content;
+    }
+  }
+}
+
+@mixin container($gutter: $gridGutter) {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: $gutter / 2;
+  padding-right: $gutter / 2;
+
+  @each $name, $width in $containerMaxWidths {
+    @include mq(greater $name) {
+      max-width: $width;
+    }
+  }
+}
+
+@mixin grid($gutterX: $gridGutter, $gutterY: $gutterX) {
+  display: grid;
+  gap: $gutterY $gutterY;
+}
+
+@mixin gridAuto($min-width) {
+  grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+}
+
+@mixin gridFill($cols: auto) {
+  @if $cols == auto {
+    @include gridAuto(auto);
+  } @else {
+    grid-template-columns: repeat($cols, 1fr);
+  }
+}
+
+@mixin flexGrid($gutterX: $gridGutter, $gutterY: $gutterX) {
+  @include gutter($gutterX, $gutterY);
+
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-top: calc(var(--gutterY) * -1);
+  margin-left: calc(var(--gutterX) / -2);
+  margin-right: calc(var(--gutterX) / -2);
+}
+
+@mixin flexGridAuto($cols: auto) {
+  $val: if(type-of($cols) == "number", $cols, $cols);
+  @include gridCols($val);
+
+  > * {
+    @if $val == auto {
+      @include itemAuto;
+    } @else if $val == content {
+      @include itemContent;
+    } @else {
+      @include item;
+    }
+  }
+}
+
+@mixin gridCols($cols) {
+  @if type-of($cols) == "number" {
+    --gridCols: #{$cols};
+  }
+}
+
+@mixin item($cols: null) {
+  @include _col;
+
+  // flex-basis
+  @if $cols {
+    width: calc((#{percentage($cols / $gridColumns)}) - var(--gutterX));
+  } @else {
+    width: calc(100% / var(--gridCols) - var(--gutterX));
+  }
+}
+
+@mixin itemAuto() {
+  @include _col;
+
+  flex: 1 0 0%;
+}
+
+@mixin itemContent() {
+  @include _col;
+
+  flex: 0 0 auto;
+  width: auto;
+}
+
+@mixin gutter($sizeX, $sizeY) {
+  @include gutterX($sizeX);
+  @include gutterY($sizeY);
+}
+
+@mixin gutterX($size) {
+  @if unitless($size) {
+    $size: $size + px;
+  }
+
+  --gutterX: #{$size};
+}
+
+@mixin gutterY($size) {
+  @if unitless($size) {
+    $size: $size + px;
+  }
+  --gutterY: #{$size};
+}
+
+@mixin offset($size) {
+  $val: $size / $gridColumns;
+
+  margin-left: if($val == 0, 0, percentage($val));
+}
+
+@mixin _col() {
+  flex-shrink: 0;
+
+  max-width: 100%;
+  margin-top: var(--gutterY);
+  margin-left: calc(var(--gutterX) / 2);
+  margin-right: calc(var(--gutterX) / 2);
+}

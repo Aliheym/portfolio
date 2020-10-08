@@ -1,0 +1,30 @@
+.contacts__socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: $lgSpace;
+  padding: $baseSpace $lgSpace 0;
+
+  background-color: $white;
+
+  box-shadow: 0 0.5rem 2rem rgba($black, 0.4);
+
+  @include mq(less landscape) {
+    padding: $mdSpace $mdSpace 0;
+  }
+}
+
+.contacts__subtitle {
+  flex-grow: 1;
+  margin: 0;
+  margin-bottom: $baseSpace;
+
+  font-size: $mdText;
+  line-height: 1;
+  color: $headingColor;
+}
+
+.contacts__socials-list {
+  margin-left: auto;
+  margin-right: auto;
+}

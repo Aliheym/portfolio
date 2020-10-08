@@ -1,0 +1,102 @@
+.socials {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+
+  list-style-type: none;
+}
+
+.socials__item {
+  margin: 0 $baseSpace $baseSpace;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &--twitter {
+    color: #1da1f2;
+  }
+
+  &--telegram {
+    color: #2ca5e0;
+  }
+
+  &--codepen {
+    color: #000;
+  }
+
+  &--gmail {
+    color: #d14836;
+  }
+
+  &--github {
+    color: #181717;
+  }
+
+  &--stackoverflow {
+    color: #fe7a16;
+  }
+
+  &--habr {
+    color: #77a2b6;
+  }
+
+  @include mq(less landscape) {
+    margin-bottom: $lgSpace;
+  }
+}
+
+.socials__link {
+  position: relative;
+
+  display: block;
+  padding: $xsSpace;
+  overflow: hidden;
+
+  border-radius: 0.3rem;
+
+  box-shadow: 0 0.15rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+.socials__link:hover::after {
+  top: -25%;
+  left: -25%;
+}
+
+.socials__link:hover .socials__icon {
+  transform: scale(1);
+  fill: $white;
+}
+
+.socials__link::after {
+  content: "";
+  position: absolute;
+  top: 125%;
+  left: -125%;
+
+  width: 150%;
+  height: 150%;
+
+  background-color: currentColor;
+
+  transform: rotate(45deg);
+  transition: all 0.35s;
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.socials__icon {
+  position: relative;
+  z-index: z();
+
+  display: block;
+  width: $mdIcon;
+  height: $mdIcon;
+
+  fill: currentColor;
+
+  transform: scale(0.75);
+  transition: all 0.3s ease-out;
+}

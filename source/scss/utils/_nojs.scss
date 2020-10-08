@@ -1,0 +1,17 @@
+.no-js {
+  * {
+    pointer-events: auto !important;
+  }
+
+  .preloader {
+    display: none !important;
+  }
+
+  .preload {
+    overflow: auto !important;
+  }
+
+  [data-dropdown] {
+    display: none !important;
+  }
+}

@@ -1,0 +1,42 @@
+$primaryColor: #9e0a79 !default;
+$primaryDarkColor: darken($primaryColor, 10%) !default;
+$primaryLightColor: lighten($primaryColor, 10%) !default;
+$primaryThinColor: lighten($primaryColor, 20%) !default;
+
+$secondaryColor: #00796b !default;
+$secondaryDarkColor: darken($secondaryColor, 10%) !default;
+$secondaryLightColor: lighten($secondaryColor, 10%) !default;
+$secondaryThinColor: lighten($secondaryColor, 20%) !default;
+
+$successColor: #88c459 !default;
+$errorColor: #f5414f !default;
+$warningColor: #ffd137 !default;
+
+$grey-50: #fafafa !default;
+$grey-100: #f5f5f5 !default;
+$grey-200: #eee !default;
+$grey-300: #e0e0e0 !default;
+$grey-400: #bdbdbd !default;
+$grey-500: #9e9e9e !default;
+$grey-600: #757575 !default;
+$grey-700: #616161 !default;
+$grey-800: #424242 !default;
+$grey-900: #212121 !default;
+$grey-a100: #f5f5f5 !default;
+$grey-a200: #eee !default;
+$grey-a400: #bdbdbd !default;
+$grey-a700: #616161 !default;
+$grey: $grey-500 !default;
+
+$textColor: #333 !default;
+$textMutedColor: $grey-600 !default;
+$textMarkColor: #ffea00 !default;
+$headingColor: #222 !default;
+
+$darkColor: #1b242f !default;
+$darkColor-700: #1b1b1b !default;
+$darkColor-800: #191919 !default;
+$darkColor-900: #1f0f0f !default;
+
+$black: #000 !default;
+$white: #fff !default;

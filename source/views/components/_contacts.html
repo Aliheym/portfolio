@@ -1,0 +1,114 @@
+<section id="contacts" class="section section--dark contacts"
+         data-section="contacts">
+  <div class="container">
+    <h2 class="section__title" data-aos="fade-left">Contacts</h2>
+
+    <section class="contacts__socials" data-aos="fade-up">
+      <h3 class="contacts__subtitle">Where you can find me?</h3>
+      <ul class="contacts__socials-list socials">
+        <li class="socials__item socials__item--telegram">
+          <a class="socials__link" href="https://t.me/aliheym" target="_blank"
+             aria-label="My telegram">
+            <svg width="24" height="24" class="socials__icon">
+              <use xlink:href="./assets/images/icons.svg#telegram" />
+            </svg>
+          </a>
+        </li>
+        <li class="socials__item socials__item--codepen">
+          <a class="socials__link" href="https://codepen.io/alisalyyneheym"
+             target="_blank" rel="noopener" aria-label="My codepen">
+            <svg width="24" height="24" class="socials__icon">
+              <use xlink:href="./assets/images/icons.svg#codepen" />
+            </svg>
+          </a>
+        </li>
+        <li class="socials__item socials__item--gmail">
+          <a class="socials__link" href="mailto:fabianowty@gmail.com"
+             rel="noopener" aria-label="My mail">
+            <svg width="24" height="24" class="socials__icon">
+              <use xlink:href="./assets/images/icons.svg#gmail" />
+            </svg>
+          </a>
+        </li>
+        <li class="socials__item socials__item--github">
+          <a class="socials__link" href="https://github.com/aliheym"
+             target="_blank" rel="noopener" aria-label="My github">
+            <svg width="24" height="24" class="socials__icon">
+              <use xlink:href="./assets/images/icons.svg#github" />
+            </svg>
+          </a>
+        </li>
+        <li class="socials__item socials__item--stackoverflow">
+          <a class="socials__link" href="#" aria-label="My stackoverflow">
+            <svg width="24" height="24" class="socials__icon">
+              <use xlink:href="./assets/images/icons.svg#stackoverflow" />
+            </svg>
+          </a>
+        </li>
+        <li class="socials__item socials__item--habr">
+          <a class="socials__link" href="https://qna.habr.com/user/FabiBoom"
+             target="_blank" rel="noopener" aria-label="My habr">
+            <svg width="24" height="24" class="socials__icon">
+              <use xlink:href="./assets/images/icons.svg#habr" />
+            </svg>
+          </a>
+        </li>
+        <li class="socials__item socials__item--twitter">
+          <a class="socials__link" href="#" aria-label="My twitter">
+            <svg width="24" height="24" class="socials__icon">
+              <use xlink:href="./assets/images/icons.svg#twitter" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section class="contacts__form form" data-aos="zoom-in-up">
+      <h3 class="section__subtitle">Get in touch</h3>
+      <form id="contact-form" action="#" method="POST">
+        <div class="form__row">
+          <div class="form__item">
+            <label for="fieldName" class="form__label">Tell me your name
+              (*)</label>
+
+            <p class="form__group">
+              <svg class="form__input-icon">
+                <use xlink:href="./assets/images/icons.svg#avatar" />
+              </svg>
+              <input id="fieldName" class="form__input" type="text"
+                     placeholder="Full name" required>
+            </p>
+          </div>
+          <div class="form__item">
+            <label for="fieldEmail" class="form__label">Enter your email
+              (*)</label>
+
+            <p class="form__group">
+              <svg class="form__input-icon">
+                <use xlink:href="./assets/images/icons.svg#mail" />
+              </svg>
+              <input id="fieldEmail" class="form__input" type="email"
+                     placeholder="Eg. example@email.com" required>
+            </p>
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__item">
+            <label for="fieldMessage" class="form__label">Message (*)</label>
+
+            <p class="form__group">
+              <svg class="form__input-icon">
+                <use xlink:href="./assets/images/icons.svg#chat" />
+              </svg>
+              <textarea id="fieldMessage" class="form__input"
+                        placeholder="Your message..." required></textarea>
+            </p>
+          </div>
+        </div>
+        <div class="form__row form__row--centered">
+          <button id="sendButton" class="form__btn" type="submit" disabled>Send
+            message</button>
+        </div>
+      </form>
+    </section>
+  </div>
+</section>

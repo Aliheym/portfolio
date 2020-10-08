@@ -1,0 +1,38 @@
+html {
+  font-feature-settings: "lnum" 1;
+
+  scroll-behavior: smooth;
+  scrollbar-color: $textMarkColor $darkColor;
+  scrollbar-width: thin;
+}
+
+html::-webkit-scrollbar {
+  width: 9px;
+  background-color: $darkColor;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to bottom, $darkColor 10%, $primaryColor);
+  border-bottom-left-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(to bottom, $darkColor 10%, $textMarkColor);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: $primaryFont;
+  font-size: $baseTextSize;
+  line-height: $textLineHeight;
+  color: $textColor;
+
+  background-color: $white;
+}
+
+::selection {
+  background-color: $textMarkColor;
+}

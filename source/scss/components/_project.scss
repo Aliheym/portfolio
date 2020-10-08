@@ -1,0 +1,85 @@
+.project {
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 0.25rem;
+
+  cursor: pointer;
+
+  &:hover .project__info {
+    opacity: 0.9;
+    visibility: visible;
+  }
+}
+
+.project__image {
+  padding-top: map-get($aspect-ratios, "4x3");
+}
+
+.project__thumb {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.project__info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  background-color: $primaryColor;
+  color: $white;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+.project__name {
+  margin: 0;
+  margin-bottom: $xxsSpace;
+  padding: 0;
+
+  font-size: $mdText;
+  white-space: nowrap;
+
+  @include mq(less laptop) {
+    font-size: $lgText;
+  }
+}
+
+.project__tech {
+  margin: 0;
+  padding: 0;
+
+  font-size: $smText;
+  color: $textMarkColor;
+
+  @include mq(less laptop) {
+    font-size: $mdText;
+  }
+}
+
+.project__btn {
+  margin-top: $lgSpace;
+  padding: $xsSpace $mdSpace;
+
+  &:hover {
+    background-color: $white;
+    color: $black;
+  }
+}

@@ -1,0 +1,16 @@
+.skills__list {
+  @include list-reset;
+
+  @include flexGrid();
+
+  @include gutterY($xlSpace);
+  @include flexGridAuto(3);
+
+  @include mq(less laptop) {
+    @include gridCols(2);
+  }
+
+  @include mq(less desktop) {
+    @include gridCols(1);
+  }
+}

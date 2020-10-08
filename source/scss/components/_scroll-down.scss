@@ -1,0 +1,49 @@
+$height: 40px;
+$width: 20px;
+
+$arrowSize: 5px;
+$componentBorderWidth: 2px;
+
+.scroll-down {
+  position: relative;
+  display: block;
+
+  height: $height;
+  width: $width;
+  box-sizing: content-box;
+
+  color: $white;
+  text-decoration: none;
+
+  border: $componentBorderWidth solid;
+  outline: none;
+  border-radius: 2rem;
+
+  &:hover,
+  &:focus {
+    color: $primaryColor;
+  }
+}
+
+.scroll-down::before,
+.scroll-down::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 50%;
+
+  width: $arrowSize;
+  height: $arrowSize;
+
+  border: $componentBorderWidth solid;
+  border-top-color: transparent;
+  border-left-color: transparent;
+
+  transform: translate(-50%, -100%) rotate(45deg);
+  animation: scrollDown 1s ease-in-out infinite;
+}
+
+.scroll-down::after {
+  top: 40%;
+  animation-delay: 0.3s;
+}

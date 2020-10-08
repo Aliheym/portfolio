@@ -1,0 +1,51 @@
+.btn {
+  display: inline-block;
+  padding: $baseSpace $mdSpace;
+
+  font-size: $mdText;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-align: center;
+  text-decoration: none;
+  color: $white;
+
+  background-color: transparent;
+  border: 2px solid $white;
+  outline: none;
+
+  transition: background-color 0.4s, border-color 0.4s;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: $primaryColor;
+    border-color: $primaryColor;
+  }
+
+  &--icon {
+    position: relative;
+
+    padding-right: $xlSpace;
+  }
+
+  &--icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: $mdSpace;
+
+    width: $smIcon;
+    height: $smIcon;
+    margin-top: -$mdSpace / 2;
+
+    background-image: #{icon(arrow)};
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transition: transform 0.3s;
+  }
+
+  &--rotate:hover::after {
+    transform: rotate(90deg);
+  }
+}
